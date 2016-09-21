@@ -3,6 +3,7 @@ package com.tab.qa.framework.core;
 import org.testng.ITestContext;
 import org.testng.log4testng.Logger;
 
+import com.jayway.restassured.response.Response;
 import com.tab.qa.framework.verify.CustomAssert;
 
 public class TestBase extends SeleniumBase {
@@ -15,6 +16,9 @@ public class TestBase extends SeleniumBase {
 //	protected static Database db; 
 	
 	protected ITestContext myTestContext;
+	
+	private static Response response;
+	public static boolean Continue;
 	
 	protected static void initialiseEnvironment() {
 		// Initialise test environment according to the test record. 
@@ -98,6 +102,14 @@ public class TestBase extends SeleniumBase {
 		getDriver().quit();
 		browserOpen = false;
 		logger.info("Browser closed.");		
+	}
+
+	public static Response getResponse() {
+		return response;
+	}
+
+	public static void setResponse(Response response) {
+		TestBase.response = response;
 	}
 	
 	

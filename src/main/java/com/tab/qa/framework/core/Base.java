@@ -27,7 +27,7 @@ public class Base {
 	private static String _logfilename = null;
 	private static Level _loggerlevel = Level.INFO;
 	private static String _loggerlayout = "%d [%t] %-5p %c %x - %m%n";
-	
+	private static String _tabcorpauth = "";
 	private static Boolean _initilized = false;
 	
 	private static Properties _properties;
@@ -56,6 +56,12 @@ public class Base {
 		DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
 		Reporter.log(dateFormat.format(new Date()) + ": " + message);// + "<br>");
 		logger.info(message);
+	}
+	
+
+	public static void log(String message, boolean takeScreenshot) {
+		Reporter.log(message);// + "<br>");
+		//if (takeScreenshot)	TestBase.createScreenshot();
 	}
 	
 	public static String getTestPropertyValue(String PropertyName) {
@@ -164,6 +170,15 @@ public class Base {
 
 	public static void setLogPath(String _logpath) {
 		Base._logpath = _logpath;
+	}
+	
+
+	public static String getTabCorpAuth() {
+		return _tabcorpauth;
+	}
+
+	public static void setTabCorpAuth(String TabCorpAuth) {
+		_tabcorpauth = TabCorpAuth;
 	}
 	
 	

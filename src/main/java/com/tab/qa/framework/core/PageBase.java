@@ -221,7 +221,7 @@ public class PageBase extends SeleniumBase{
 		action.moveToElement(performRightClickOn).contextClick(performRightClickOn).build().perform();
 	}
 	
-	public WebElement waitForPresenceOfElement(By locator) {
+	public static WebElement waitForPresenceOfElement(By locator) {
 		//logger.info(String.format("waitForPresenceOfElement(%s)", locator));
 		
 		WebElement element = null;

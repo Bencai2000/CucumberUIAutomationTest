@@ -22,7 +22,7 @@ public class ControlBase extends PageBase{
 		this.set_by(by);
 	}
 	
-	public WebElement waitForPresenceOfElement(By locator) {
+	public static WebElement waitForPresenceOfElement(By locator) {
 
 		WebElement element = null;
 		try {

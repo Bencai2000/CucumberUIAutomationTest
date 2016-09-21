@@ -167,16 +167,21 @@ public class SeleniumBase extends Base {
 	}
 	
 	
-	private void sleep(Duration duration) throws InterruptedException{		
-		Sleeper.SYSTEM_SLEEPER.sleep(duration);		
+	private static void sleep(Duration duration){		
+		try {
+			Sleeper.SYSTEM_SLEEPER.sleep(duration);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}		
 	}
 	
-	public void sleeps(int seconds) throws InterruptedException{	
+	public static void sleeps(int seconds) {	
 		Duration dur = new Duration(seconds, TimeUnit.SECONDS);
 		sleep(dur);	
 	}
 	
-	public void sleepms(int ms) throws InterruptedException{
+	public void sleepms(int ms) {
 		Duration dur = new Duration(ms, TimeUnit.MILLISECONDS);
 		sleep(dur);	
 	}
