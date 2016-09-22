@@ -7,11 +7,11 @@ formatter.feature({
   "keyword": "Feature"
 });
 formatter.before({
-  "duration": 344306102,
+  "duration": 332761761,
   "status": "passed"
 });
 formatter.before({
-  "duration": 28305790558,
+  "duration": 11838537985,
   "status": "passed"
 });
 formatter.background({
@@ -30,7 +30,7 @@ formatter.match({
   "location": "StepDefinitions.test_enviro_ready()"
 });
 formatter.result({
-  "duration": 245933050,
+  "duration": 282836277,
   "status": "passed"
 });
 formatter.scenario({
@@ -66,33 +66,33 @@ formatter.match({
   "location": "StepDefinitions.user_is_on_landing_page()"
 });
 formatter.result({
-  "duration": 43960043,
+  "duration": 41396294,
   "status": "passed"
 });
 formatter.match({
   "location": "StepDefinitions.user_clicks_on_login_button()"
 });
 formatter.result({
-  "duration": 4022508429,
+  "duration": 4078853742,
   "status": "passed"
 });
 formatter.match({
   "location": "StepDefinitions.login_screen_is_displayed()"
 });
 formatter.result({
-  "duration": 3981409085,
+  "duration": 3886861393,
   "status": "passed"
 });
 formatter.after({
-  "duration": 1392591,
+  "duration": 1134893,
   "status": "passed"
 });
 formatter.before({
-  "duration": 1953160912,
+  "duration": 1853266423,
   "status": "passed"
 });
 formatter.before({
-  "duration": 111782,
+  "duration": 96850,
   "status": "passed"
 });
 formatter.background({
@@ -111,7 +111,7 @@ formatter.match({
   "location": "StepDefinitions.test_enviro_ready()"
 });
 formatter.result({
-  "duration": 1853374,
+  "duration": 493210,
   "status": "passed"
 });
 formatter.scenario({
@@ -147,33 +147,33 @@ formatter.match({
   "location": "StepDefinitions.user_is_on_landing_page()"
 });
 formatter.result({
-  "duration": 33702913,
+  "duration": 44412720,
   "status": "passed"
 });
 formatter.match({
   "location": "StepDefinitions.user_clicks_on_login_button()"
 });
 formatter.result({
-  "duration": 3544927902,
+  "duration": 3595203242,
   "status": "passed"
 });
 formatter.match({
   "location": "StepDefinitions.login_screen_is_displayed()"
 });
 formatter.result({
-  "duration": 3623123746,
+  "duration": 4073827786,
   "status": "passed"
 });
 formatter.after({
-  "duration": 439878,
+  "duration": 625898,
   "status": "passed"
 });
 formatter.before({
-  "duration": 1463679366,
+  "duration": 1628552461,
   "status": "passed"
 });
 formatter.before({
-  "duration": 79784,
+  "duration": 83197,
   "status": "passed"
 });
 formatter.background({
@@ -192,7 +192,7 @@ formatter.match({
   "location": "StepDefinitions.test_enviro_ready()"
 });
 formatter.result({
-  "duration": 951006,
+  "duration": 571286,
   "status": "passed"
 });
 formatter.scenario({
@@ -228,25 +228,25 @@ formatter.match({
   "location": "StepDefinitions.user_is_on_landing_page()"
 });
 formatter.result({
-  "duration": 44144357,
+  "duration": 55433557,
   "status": "passed"
 });
 formatter.match({
   "location": "StepDefinitions.user_clicks_on_login_button()"
 });
 formatter.result({
-  "duration": 3619346600,
+  "duration": 3566145285,
   "status": "passed"
 });
 formatter.match({
   "location": "StepDefinitions.login_screen_is_displayed()"
 });
 formatter.result({
-  "duration": 3678450214,
+  "duration": 3820748321,
   "status": "passed"
 });
 formatter.after({
-  "duration": 895115,
+  "duration": 1138733,
   "status": "passed"
 });
 });

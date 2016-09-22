@@ -27,6 +27,8 @@ public class GithubTestBase extends TestBase{
 		baseURL = getTestPropertyValue("baseUrl");
 		browser = getTestPropertyValue("browser");
 		setBaseUrl(baseURL);
+		setBrowser(browser);
+		
 		
 		logger.info("Base URL: " + baseURL);
 		logger.info("Browser: " + browser);

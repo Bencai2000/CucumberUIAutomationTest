@@ -19,13 +19,12 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebDriverException;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.interactions.Keyboard;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.ui.Duration;
 import org.openqa.selenium.support.ui.Sleeper;
 import org.openqa.selenium.support.ui.WebDriverWait;
-//import org.testng.ITestResult;
-//import org.testng.Reporter;
 
 
 /**
@@ -38,7 +37,7 @@ public class SeleniumBase extends Base {
 	protected static WebDriver _webDriver = null;
 	private static WebDriverWait _waitVar = null;
     protected static boolean _driverInitialised = false;    
-    private static String _browser = "Chrome";   
+    private static String _browser = "";   
     private static String _driverPath = "C:\\Selenium\\Drivers\\";    
     private static String _baseUrl = "";
     private static String _baseAPIUrl = "";		   
@@ -50,15 +49,15 @@ public class SeleniumBase extends Base {
 		return _browser;
 	}
 
-	public void setBrowser(String browser) {
+	public static void setBrowser(String browser) {
 		_browser = browser;
 	}
 
-	public String getDriverPath() {
+	public static String getDriverPath() {
 		return _driverPath;
 	}
 
-	public  void setDriverPath(String driverPath) {
+	public static void setDriverPath(String driverPath) {
 		_driverPath = driverPath;
 	}
 
@@ -131,11 +130,13 @@ public class SeleniumBase extends Base {
 				_webDriver.manage().timeouts().implicitlyWait(15,  TimeUnit.SECONDS);
 				
 //				_webDriver.get(getBaseUrl());
-//				
 //				setWaitVar(new WebDriverWait(_webDriver, 15));
+				_driverInitialised = true;
 				
 			}else if(getBrowser().equalsIgnoreCase("Firefox")){
-
+				setDriver(new FirefoxDriver());
+				_driverInitialised = true;
+				logger.info("Firefox Driver Initialized");
 				
 			}else if(getBrowser().equalsIgnoreCase("IE")){
 
@@ -146,7 +147,7 @@ public class SeleniumBase extends Base {
 			}
 		}
 		
-		_driverInitialised = true;
+//		_driverInitialised = true;
 	}
 	
 	protected static void finaliseDriver() throws Exception {		

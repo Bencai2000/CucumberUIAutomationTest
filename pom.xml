@@ -175,6 +175,15 @@
 	</dependency>
 	
 	
+	<!-- Groovy Test package com.tab.qa.framework.utils Test.java -->
+	<!-- https://mvnrepository.com/artifact/org.codehaus.groovy/groovy-all 
+	<dependency>
+	    <groupId>org.codehaus.groovy</groupId>
+	    <artifactId>groovy-all</artifactId>
+	    <version>2.4.7</version>
+	</dependency>
+	-->
+	
   </dependencies>
 
 </project>
