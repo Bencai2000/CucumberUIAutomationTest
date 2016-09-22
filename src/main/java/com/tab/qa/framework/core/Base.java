@@ -3,7 +3,7 @@ package com.tab.qa.framework.core;
 import java.io.File;
 import java.io.IOException;
 import java.net.InetAddress;
-import java.text.DateFormat;
+//import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Properties;
@@ -13,7 +13,7 @@ import org.apache.log4j.FileAppender;
 import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
 import org.apache.log4j.PatternLayout;
-import org.testng.Reporter;
+//import org.testng.Reporter;
 
 
 /**
@@ -52,17 +52,17 @@ public class Base {
 		return _hostname;
 	}
 
-	public static void log(String message) {
-		DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
-		Reporter.log(dateFormat.format(new Date()) + ": " + message);// + "<br>");
-		logger.info(message);
-	}
+//	public static void log(String message) {
+//		DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
+//		Reporter.log(dateFormat.format(new Date()) + ": " + message);// + "<br>");
+//		logger.info(message);
+//	}
 	
 
-	public static void log(String message, boolean takeScreenshot) {
-		Reporter.log(message);// + "<br>");
-		//if (takeScreenshot)	TestBase.createScreenshot();
-	}
+//	public static void log(String message, boolean takeScreenshot) {
+//		Reporter.log(message);// + "<br>");
+//		//if (takeScreenshot)	TestBase.createScreenshot();
+//	}
 	
 	public static String getTestPropertyValue(String PropertyName) {
 		String value = null;
@@ -106,7 +106,7 @@ public class Base {
 		}				
 		initialiseLog4jLogger();
 		logger.info("Log File <"+ getHostName() + " "+_logpath + _logfilename+">");		
-		Reporter.log("For detailed Log, see : " + getHostName() + " " + _logpath + _logfilename );
+//		Reporter.log("For detailed Log, see : " + getHostName() + " " + _logpath + _logfilename );
 	}
 	
 	

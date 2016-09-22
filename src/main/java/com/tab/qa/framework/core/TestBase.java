@@ -1,10 +1,16 @@
 package com.tab.qa.framework.core;
 
-import org.testng.ITestContext;
-import org.testng.log4testng.Logger;
+//import org.testng.ITestContext;
+//import org.testng.log4testng.Logger;
 
 import com.jayway.restassured.response.Response;
 import com.tab.qa.framework.verify.CustomAssert;
+
+//import org.apache.log4j.ConsoleAppender;
+//import org.apache.log4j.FileAppender;
+//import org.apache.log4j.Level;
+import org.apache.log4j.Logger;
+//import org.apache.log4j.PatternLayout;
 
 public class TestBase extends SeleniumBase {
 
@@ -15,7 +21,7 @@ public class TestBase extends SeleniumBase {
 //	private static boolean dbInitialised = false;
 //	protected static Database db; 
 	
-	protected ITestContext myTestContext;
+//	protected ITestContext myTestContext;
 	
 	private static Response response;
 	public static boolean Continue;
@@ -94,7 +100,7 @@ public class TestBase extends SeleniumBase {
 		
 		maximize();
 		browserOpen = true;		
-		log("Application loaded successfully.");
+		logger.info("Application loaded successfully.");
 		return browserOpen;
 	}
 	

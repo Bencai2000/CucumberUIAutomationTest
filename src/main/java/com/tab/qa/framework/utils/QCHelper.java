@@ -17,7 +17,7 @@ import org.apache.commons.httpclient.URIException;
 import org.apache.commons.httpclient.util.HttpURLConnection;
 import org.apache.commons.httpclient.util.URIUtil;
 import org.apache.log4j.Logger;
-import org.testng.ITestResult;
+//import org.testng.ITestResult;
 
 import javax.annotation.Generated;
 
@@ -137,28 +137,28 @@ public class QCHelper {
 		return GetQCEntityForProjects(urlPostFix, ProjectsList);		
 	}
 
-	public static void AddTestRun(String TestField, String TestFieldValue, String RunName, Integer TestStatus, String TestSetName, String Comments) {
-		String strTestStatus = null;
-		switch (TestStatus) {
-		case ITestResult.FAILURE:
-			strTestStatus = QCTestStatus.Fail;
-			break;
-		case ITestResult.SUCCESS:
-			strTestStatus = QCTestStatus.Pass;
-		break;
-		case ITestResult.SKIP:
-			strTestStatus = QCTestStatus.NoRun;
-		break;
-		case ITestResult.STARTED:
-			strTestStatus = QCTestStatus.NotCompleted;
-		break;
-		default:
-			strTestStatus = QCTestStatus.NA;
-			break;
-		}
-		System.out.println("strTestStatus = " + strTestStatus + ", TestStatus = " + TestStatus);
-		AddTestRun(TestField, TestFieldValue, RunName, strTestStatus, TestSetName, Comments);
-	}
+//	public static void AddTestRun(String TestField, String TestFieldValue, String RunName, Integer TestStatus, String TestSetName, String Comments) {
+//		String strTestStatus = null;
+//		switch (TestStatus) {
+//		case ITestResult.FAILURE:
+//			strTestStatus = QCTestStatus.Fail;
+//			break;
+//		case ITestResult.SUCCESS:
+//			strTestStatus = QCTestStatus.Pass;
+//		break;
+//		case ITestResult.SKIP:
+//			strTestStatus = QCTestStatus.NoRun;
+//		break;
+//		case ITestResult.STARTED:
+//			strTestStatus = QCTestStatus.NotCompleted;
+//		break;
+//		default:
+//			strTestStatus = QCTestStatus.NA;
+//			break;
+//		}
+//		System.out.println("strTestStatus = " + strTestStatus + ", TestStatus = " + TestStatus);
+//		AddTestRun(TestField, TestFieldValue, RunName, strTestStatus, TestSetName, Comments);
+//	}
 	
 	public static void AddTestRun(String TestField, String TestFieldValue, String RunName, String TestStatus, String TestSetName, String Comments) {			
 		QCEntity qcEntity = GetEntityByFieldValue(QCEntityType.Tests, TestField, TestFieldValue);		

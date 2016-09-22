@@ -24,8 +24,8 @@ import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.ui.Duration;
 import org.openqa.selenium.support.ui.Sleeper;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import org.testng.ITestResult;
-import org.testng.Reporter;
+//import org.testng.ITestResult;
+//import org.testng.Reporter;
 
 
 /**
@@ -304,40 +304,40 @@ public class SeleniumBase extends Base {
     
     public void createScreenshot() {
     	
-    	ITestResult result = Reporter.getCurrentTestResult();
-    	String imagePath = "-screenshot-" 
-    			+ (new SimpleDateFormat("dd_MMM_yyyy__hh_mm_ss_Saa").format(new Date())) 
-    			+ ".png";
-    	
-    	try{
-    		
-    		if(!result.isSuccess() && getDriver() instanceof TakesScreenshot){
-    			
-    			TakesScreenshot screenShotter = (TakesScreenshot) (getDriver());
-    			File target = new File("surefire-reports" 
-    					+ File.separator + "html" + File.separator + imagePath);
-    			FileUtils.copyFile(screenShotter.getScreenshotAs(OutputType.FILE), target);
- 		
-    			logger.info("Stored screenshot in file > " + target);
-				reportLogScreenshot(target);
-				
-				result.setStatus(ITestResult.FAILURE);    
-    		}
-    		
-    	}catch (Exception e) {
-    		e.printStackTrace();
-    	}
+//    	ITestResult result = Reporter.getCurrentTestResult();
+//    	String imagePath = "-screenshot-" 
+//    			+ (new SimpleDateFormat("dd_MMM_yyyy__hh_mm_ss_Saa").format(new Date())) 
+//    			+ ".png";
+//    	
+//    	try{
+//    		
+//    		if(!result.isSuccess() && getDriver() instanceof TakesScreenshot){
+//    			
+//    			TakesScreenshot screenShotter = (TakesScreenshot) (getDriver());
+//    			File target = new File("surefire-reports" 
+//    					+ File.separator + "html" + File.separator + imagePath);
+//    			FileUtils.copyFile(screenShotter.getScreenshotAs(OutputType.FILE), target);
+// 		
+//    			logger.info("Stored screenshot in file > " + target);
+//				reportLogScreenshot(target);
+//				
+//				result.setStatus(ITestResult.FAILURE);    
+//    		}
+//    		
+//    	}catch (Exception e) {
+//    		e.printStackTrace();
+//    	}
     	    	
     }
     
     public void createScreenshotAlways() {
     	try {
-    		log("Take screen shot");
+    		logger.info("Take screen shot");
 	    	String imagePath="-screenshot-" + (new SimpleDateFormat("dd_MMM_yyyy__hh_mm_ss_Saa").format(new Date())) + ".png";
 	    	TakesScreenshot screenShotter = (TakesScreenshot) (getDriver());
 	    	File target = new File("surefire-reports" +File.separator+ "html" +File.separator+ imagePath);
 	        FileUtils.copyFile(screenShotter.getScreenshotAs(OutputType.FILE), target);
-	        log("Stored screenshot in file > " + target.getPath());
+	        logger.info("Stored screenshot in file > " + target.getPath());
 	        
 	        reportLogScreenshot(target);
 	        
@@ -345,7 +345,7 @@ public class SeleniumBase extends Base {
 //	        log("Error screenshot at " + new Date() + " - " + absolute);
 	        
     	} catch (Exception e) {
-    		log("Cannot take screen shot!");
+    		logger.info("Cannot take screen shot!");
     	}
     }
     
@@ -357,14 +357,14 @@ public class SeleniumBase extends Base {
     	
     	try {
 			localMachine = java.net.InetAddress.getLocalHost();
-			log("Local Machine: " + localMachine);
+			logger.info("Local Machine: " + localMachine);
 			hostName = localMachine.getHostName();
 		} catch (UnknownHostException e) {
 			e.printStackTrace();
 		}
     	
     	String path = "\\\\" + hostName + file.getAbsoluteFile().toString().substring(2);
-    	log("path = " + path);
+    	logger.info("path = " + path);
     	
 //    	System.setProperty("org.uncommons.reportng.escape-output", "false");
 //    	log("<a href=\"" + path + "\"><p align=\"left\">Error screenshot at " + new Date()+ "</p>");

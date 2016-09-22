@@ -1,19 +1,16 @@
 package com.tab.qa.framework.verify;
 
-import com.cucumber.automation.utils.GithubTestBase;
+//import com.cucumber.automation.utils.GithubTestBase;
+//import org.testng.Assert;
 
-//import java.util.List;
-//
-//import org.openqa.selenium.By;
-//import org.openqa.selenium.NoSuchElementException;
-//import org.openqa.selenium.WebElement;
-import org.testng.Assert;
+import com.tab.qa.framework.core.TestBase;
 import org.apache.log4j.Logger;
+import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
 
-public class CustomAssert extends GithubTestBase{
+public class CustomAssert extends TestBase{
 
 	private static Logger logger = Logger.getLogger(CustomAssert.class);
 	
@@ -29,7 +26,7 @@ public class CustomAssert extends GithubTestBase{
 	
 	public static void assertTrue(boolean condition, String message) {
 		logger.info(String.format("assertTrue(%s)", condition));
-		Assert.assertTrue(condition, message);
+		Assert.assertTrue(message, condition);
 		
 	}
 	
@@ -40,13 +37,13 @@ public class CustomAssert extends GithubTestBase{
 
 	public static void assertFalse(boolean condition, String message) {
 		logger.info(String.format("assertFalse(%s, %s)", condition, message));
-		Assert.assertFalse(condition, message);
+		Assert.assertFalse(message, condition);
 	}
 	
 	public static void assertEquals(boolean actual, boolean expected,
 			String message) {
 		logger.info(String.format("assertEquals(%s, %s)", actual, expected));
-		Assert.assertEquals(actual, expected, message);
+		Assert.assertEquals(message, actual, expected);
 	}
 
 	public static void assertEquals(Object actual, Object expected) {
@@ -57,19 +54,21 @@ public class CustomAssert extends GithubTestBase{
 	public static void assertEquals(Object actual, Object expected,
 			String message) {
 		logger.info(String.format("assertEquals(%s, %s)", actual, expected));
-		Assert.assertEquals(actual, expected, message);
+		Assert.assertEquals(message, actual, expected);
 	}
 
+	@SuppressWarnings("deprecation")
 	public static void assertEquals(Object[] actual, Object[] expected) {
 		logger.info(String.format("assertEquals(%s, %s)", actual, expected));
-		Assert.assertEquals(actual, expected);
+		Assert.assertEquals("", actual, expected);
 	}
 
+	@SuppressWarnings("deprecation")
 	public static void assertEquals(Object[] actual, Object[] expected,
 			String message) {
 		logger.info(String.format("assertEquals(%s, %s, %s)", actual, expected,
 				message));
-		Assert.assertEquals(actual, expected, message);
+		Assert.assertEquals(message, actual, expected);
 	}
 	
 	public static void assertSame(Object actual, Object expected) {
@@ -80,7 +79,7 @@ public class CustomAssert extends GithubTestBase{
 	public static void assertSame(Object actual, Object expected, String message) {
 		logger.info(String.format("assertSame(%s, %s, %s)", actual, expected,
 				message));
-		Assert.assertSame(actual, expected, message);
+		Assert.assertSame(message, actual, expected);
 	}
 
 	public static void assertNotSame(Object actual, Object expected) {
@@ -92,7 +91,7 @@ public class CustomAssert extends GithubTestBase{
 			String message) {
 		logger.info(String.format("assertNotSame(%s, %s, %s)", actual,
 				expected, message));
-		Assert.assertNotSame(actual, expected, message);
+		Assert.assertNotSame(message, actual, expected);
 	}
 	
 	public static void fail(String message) {

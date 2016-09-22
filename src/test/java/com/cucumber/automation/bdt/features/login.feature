@@ -24,10 +24,4 @@ Background:
     When user clicks on Login button
     Then user is displayed login screen
 
-  Scenario: login without username and password
-    Given user is on github homepage
-    When user clicks on Sign in button
-    Then user is displayed login screen
-    When user clicks Sign in button
-    Then user gets an error message "Incorrect username or password."
     

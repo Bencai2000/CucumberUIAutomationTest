@@ -1,12 +1,12 @@
 package com.tab.qa.framework.verify;
 
 import java.util.ArrayList;
-import java.util.HashMap;
+//import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
+//import java.util.Map;
 
-import org.testng.ITestResult;
-import org.testng.Reporter;
+//import org.testng.ITestResult;
+//import org.testng.Reporter;
 
 import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
@@ -15,13 +15,13 @@ import org.openqa.selenium.WebElement;
 public class Verify extends CustomAssert{
 	private static Logger logger = Logger.getLogger(Verify.class);
 	/** TestNG error collector */
-	private static Map<ITestResult, List<Throwable>> verificationFailuresMap = new HashMap<ITestResult, List<Throwable>>();
+//	private static Map<ITestResult, List<Throwable>> verificationFailuresMap = new HashMap<ITestResult, List<Throwable>>();
 	private static List<String> verificationErrors = new ArrayList<String>();
 	
-	public static List<Throwable> getVerificationFailures() {
-		List<Throwable> verificationFailures = verificationFailuresMap.get(Reporter.getCurrentTestResult());
-		return verificationFailures == null ? new ArrayList<Throwable>() : verificationFailures;
-	}
+//	public static List<Throwable> getVerificationFailures() {
+//		List<Throwable> verificationFailures = verificationFailuresMap.get(Reporter.getCurrentTestResult());
+//		return verificationFailures == null ? new ArrayList<Throwable>() : verificationFailures;
+//	}
 	
 	// TODO: Replace with reporting
 	public static void ClearVerificationErrors() {
@@ -34,20 +34,20 @@ public class Verify extends CustomAssert{
 		return verificationErrors;
 	}
 	
-	private static void addVerificationFailure(Throwable e) {
-		List<Throwable> verificationFailures = getVerificationFailures();
-		verificationFailuresMap.put(Reporter.getCurrentTestResult(), verificationFailures);
-		verificationFailures.add(e);
-		verificationErrors.add(e.getMessage());
-	}
+//	private static void addVerificationFailure(Throwable e) {
+//		List<Throwable> verificationFailures = getVerificationFailures();
+//		verificationFailuresMap.put(Reporter.getCurrentTestResult(), verificationFailures);
+//		verificationFailures.add(e);
+//		verificationErrors.add(e.getMessage());
+//	}
 	
 	public static void verifyFailed(String message) {
     	try {
     		CustomAssert.fail(message);
     	} catch(Throwable t) {
     		logger.error(t.getMessage());
-			addVerificationFailure(t);
-			log("FAIL: " + message);
+//			addVerificationFailure(t);
+			logger.info("FAIL: " + message);
     	}
 		
 	}
@@ -60,12 +60,12 @@ public class Verify extends CustomAssert{
     	logger.info(String.format("verifyTrue(%s)", condition));
     	try {
     		CustomAssert.assertTrue(condition);
-    		log("PASS: VerifyTrue condition is met");
+    		logger.info("PASS: VerifyTrue condition is met");
     		System.out.println("PASS: VerifyTrue condition is met");
     	} catch(Throwable t) {
     		logger.error(t.getMessage());
-			addVerificationFailure(t);
-			log("FAIL: VerifyTrue condition failed");
+//			addVerificationFailure(t);
+			logger.info("FAIL: VerifyTrue condition failed");
     	}
     }
     
@@ -73,12 +73,12 @@ public class Verify extends CustomAssert{
     	logger.info(String.format("verifyTrue(%s, %s)", condition, message));
     	try {
     		CustomAssert.assertTrue(condition, message);
-    		log("PASS: VerifyTrue condition is met");
+    		logger.info("PASS: VerifyTrue condition is met");
     		System.out.println("PASS: VerifyTrue condition is met");
     	} catch(Throwable t) {
     		logger.error(t.getMessage());
-			addVerificationFailure(t);
-			log("FAIL: VerifyTrue condition failed >> " + message);
+//			addVerificationFailure(t);
+    		logger.info("FAIL: VerifyTrue condition failed >> " + message);
 			
     	}
     }
@@ -87,11 +87,11 @@ public class Verify extends CustomAssert{
     	logger.info(String.format("verifyFalse(%s)", condition));
     	try {
     		CustomAssert.assertFalse(condition);
-    		log("PASS: VerifyFalse condition is met");
+    		logger.info("PASS: VerifyFalse condition is met");
 		} catch(Throwable t) {
 			logger.error(t.getMessage());
-			addVerificationFailure(t);
-			log("FAIL: VerifyFalse condition failed");
+//			addVerificationFailure(t);
+			logger.info("FAIL: VerifyFalse condition failed");
 		}
     }
     
@@ -99,11 +99,11 @@ public class Verify extends CustomAssert{
     	logger.info(String.format("verifyFalse(%s, %s)", condition, message));
     	try {
     		CustomAssert.assertFalse(condition, message);
-    		log("PASS: VerifyFalse condition is met");
+    		logger.info("PASS: VerifyFalse condition is met");
     	} catch(Throwable t) {
     		logger.error(t.getMessage());
-			addVerificationFailure(t);
-			log("FAIL: VerifyFalse condition failed >> " + message);
+//			addVerificationFailure(t);
+			logger.info("FAIL: VerifyFalse condition failed >> " + message);
     	}
     }
     
@@ -111,11 +111,11 @@ public class Verify extends CustomAssert{
     	logger.info(String.format("verifyEquals(%s, %s)", actual, expected));
     	try {
     		CustomAssert.assertEquals(actual, expected);
-    		log("PASS: Actual value '" + actual + "' matches expected value");
+    		logger.info("PASS: Actual value '" + actual + "' matches expected value");
 		} catch(Throwable t) {
 			logger.error(t.getMessage());
-			addVerificationFailure(t);
-			log("FAIL: Actual value '" + actual + "' does not match expected value '" + expected + "'");
+//			addVerificationFailure(t);
+			logger.info("FAIL: Actual value '" + actual + "' does not match expected value '" + expected + "'");
 		}
     }
 
@@ -124,11 +124,11 @@ public class Verify extends CustomAssert{
     	logger.info(String.format("verifyEquals(%s, %s)", actual, expected));
     	try {
     		CustomAssert.assertEquals(actual, expected);
-    		log("PASS: Actual value '" + actual + "' matches expected value");
+    		logger.info("PASS: Actual value '" + actual + "' matches expected value");
 		} catch(Throwable t) {
 			logger.error(t.getMessage());
-			addVerificationFailure(t);
-			log("FAIL: Actual value '" + actual + "' does not match expected value '" + expected + "'");
+//			addVerificationFailure(t);
+			logger.info("FAIL: Actual value '" + actual + "' does not match expected value '" + expected + "'");
 		}
 //    	return this;
     }
@@ -137,11 +137,11 @@ public class Verify extends CustomAssert{
     	logger.info(String.format("verifyEquals(%s, %s)", actual, expected));
     	try {
     		CustomAssert.assertEquals(actual, expected, message);
-    		log("PASS: Actual value '" + actual + "' matches expected value");
+    		logger.info("PASS: Actual value '" + actual + "' matches expected value");
 		} catch(Throwable t) {
 			logger.error(t.getMessage());
-			addVerificationFailure(t);
-			log("FAIL: Actual value '" + actual + "' does not match expected value '" + expected + "' ; Detail message > " + message);
+//			addVerificationFailure(t);
+			logger.info("FAIL: Actual value '" + actual + "' does not match expected value '" + expected + "' ; Detail message > " + message);
 		}
     }
     
@@ -149,11 +149,11 @@ public class Verify extends CustomAssert{
     	logger.info(String.format("verifyEquals(%s, %s)", actual, expected));
     	try {
     		CustomAssert.assertEquals(actual, expected);
-    		log("PASS: Actual value '" + actual + "' matches expected value");
+    		logger.info("PASS: Actual value '" + actual + "' matches expected value");
 		} catch(Throwable t) {
 			logger.error(t.getMessage());
-			addVerificationFailure(t);
-			log("FAIL: Actual value '" + actual + "' does not match expected value '" + expected + "'");
+//			addVerificationFailure(t);
+			logger.info("FAIL: Actual value '" + actual + "' does not match expected value '" + expected + "'");
 		}
     }
     
@@ -161,11 +161,11 @@ public class Verify extends CustomAssert{
 		logger.info(String.format("verifyPageLoaded(%s)", expectedPagetitle));			
 		try {
 			CustomAssert.assertPageLoaded(expectedPagetitle);
-			log("PASS: '" + expectedPagetitle + "' page loaded successfully");
+			logger.info("PASS: '" + expectedPagetitle + "' page loaded successfully");
 		} catch (Throwable t) {
 			logger.error(t.getMessage());
-			addVerificationFailure(t);
-			log("FAIL: '" + expectedPagetitle + "' page failed to load");
+//			addVerificationFailure(t);
+			logger.info("FAIL: '" + expectedPagetitle + "' page failed to load");
 		}
 	}
 
@@ -173,11 +173,11 @@ public class Verify extends CustomAssert{
 		logger.info(String.format("verifyDialogIsDisplayed(%s)", by));		
 		try {
 			CustomAssert.assertDialogIsDisplayed(by);	
-			log("PASS: Expected dialog is displayed");
+			logger.info("PASS: Expected dialog is displayed");
 		} catch (Throwable t) {
 			logger.error(t.getMessage());
-			addVerificationFailure(t);
-			log("FAIL: Failed to find the expected dialog, by >> " + by);
+//			addVerificationFailure(t);
+			logger.info("FAIL: Failed to find the expected dialog, by >> " + by);
 		}
 	} 
 	
@@ -185,11 +185,11 @@ public class Verify extends CustomAssert{
 		logger.info(String.format("verifyElementIsPresent(%s)", by));
 		try{
 			CustomAssert.assertElementIsPresent(by);
-			log("PASS: Expected element is present");
+			logger.info("PASS: Expected element is present");
 		} catch(Throwable t) {
 			logger.error(t.getMessage());
-			addVerificationFailure(t);
-			log("FAIL: Expected element not present, by >> " + by);
+//			addVerificationFailure(t);
+			logger.info("FAIL: Expected element not present, by >> " + by);
 		}
 	}
 	
@@ -197,10 +197,10 @@ public class Verify extends CustomAssert{
 		logger.info(String.format("verifyTextIsPresentOnPage(%s)", text));
 		try {
 			CustomAssert.assertTextIsPresentOnPage(text);
-			log("PASS: Expected text '" + text + "' is present on the page");
+			logger.info("PASS: Expected text '" + text + "' is present on the page");
 		} catch (Throwable t){
-			addVerificationFailure(t);
-			log("FAIL: Text '" + text + "' NOT present on the page");
+//			addVerificationFailure(t);
+			logger.info("FAIL: Text '" + text + "' NOT present on the page");
 		}
 	}
 	
@@ -208,10 +208,10 @@ public class Verify extends CustomAssert{
 		logger.info(String.format("verifyThatURLcontains(%s)", URLfragment));
 		try {
 			CustomAssert.assertThatURLcontains(URLfragment);
-			log("PASS: URL contains the expected URL fragment '" + URLfragment + "'");
+			logger.info("PASS: URL contains the expected URL fragment '" + URLfragment + "'");
 		} catch(Throwable t) {
-			addVerificationFailure(t);
-			log("FAIL: URL does not contain the expected URL fragment '" + URLfragment + "'");
+//			addVerificationFailure(t);
+			logger.info("FAIL: URL does not contain the expected URL fragment '" + URLfragment + "'");
 		}
 	}
 	
@@ -219,11 +219,11 @@ public class Verify extends CustomAssert{
 		logger.info(String.format("verifyElementIsDisplayed(%s)", by));
 		try {
 			CustomAssert.assertElementIsDisplayed(by);	
-			log("PASS: Expected element is displayed");
+			logger.info("PASS: Expected element is displayed");
 		} catch (Throwable t) {
 			logger.error(t.getMessage());
-			addVerificationFailure(t);	
-			log("FAIL: Expected element not displayed, by >> " + by, true);
+//			addVerificationFailure(t);	
+			logger.info("FAIL: Expected element not displayed, by >> " + by);
 		}
 	}
 	
@@ -231,11 +231,11 @@ public class Verify extends CustomAssert{
 		logger.info("--> verifyElementIsDisplayed()");
 		try {
 			CustomAssert.assertElementIsDisplayed(element);		
-			log("PASS: Expected element is displayed");
+			logger.info("PASS: Expected element is displayed");
 		} catch (Throwable t) {
 			logger.error(t.getMessage());
-			addVerificationFailure(t);	
-			log("FAIL: Expected element not displayed >> " + element, true);
+//			addVerificationFailure(t);	
+			logger.info("FAIL: Expected element not displayed >> " + element);
 		}
 	}	
 
@@ -243,11 +243,11 @@ public class Verify extends CustomAssert{
 		logger.info(String.format("verifyElementIsNotDisplayed(%s)", by));
 		try {
 			CustomAssert.assertElementIsNotDisplayed(by);	
-			log("PASS: Element is not displayed correctly");
+			logger.info("PASS: Element is not displayed correctly");
 		} catch (Throwable t) {
 			logger.error(t.getMessage());
-			addVerificationFailure(t);	
-			log("FAIL: Element is displayed incorrectly >> " + by, true);
+//			addVerificationFailure(t);	
+			logger.info("FAIL: Element is displayed incorrectly >> " + by);
 		}	
 	}
 	
@@ -255,11 +255,11 @@ public class Verify extends CustomAssert{
 		logger.info("--> verifyElementIsNotDisplayed()");
 		try {
 			CustomAssert.assertElementIsNotDisplayed(element);
-			log("PASS: Element is not displayed correctly");
+			logger.info("PASS: Element is not displayed correctly");
 		} catch (Throwable t) {
 			logger.error(t.getMessage());
-			addVerificationFailure(t);
-			log("FAIL: Element is displayed incorrectly >> ", true);
+//			addVerificationFailure(t);
+			logger.info("FAIL: Element is displayed incorrectly >> ");
 		}
 	}
 	
@@ -267,11 +267,11 @@ public class Verify extends CustomAssert{
 		logger.info(String.format("verifyElementIsEnabled(%s)", by));
 		try {
 			CustomAssert.assertElementIsEnabled(by);
-			log("PASS: Element is enabled correctly");
+			logger.info("PASS: Element is enabled correctly");
 		} catch (Throwable t) {
 			logger.error(t.getMessage());
-			addVerificationFailure(t);
-			log("FAIL: Element is disabled incorrectly >> " + by, true);
+//			addVerificationFailure(t);
+			logger.info("FAIL: Element is disabled incorrectly >> " + by);
 		}
 	}
 	
@@ -279,11 +279,11 @@ public class Verify extends CustomAssert{
 		logger.info("--> verifyElementIsEnabled(%s)");
 		try {
 			CustomAssert.assertElementIsEnabled(element);
-			log("PASS: Element is enabled correctly");
+			logger.info("PASS: Element is enabled correctly");
 		} catch (Throwable t) {
 			logger.error(t.getMessage());
-			addVerificationFailure(t);		
-			log("FAIL: Element is disabled incorrectly >> " + element, true);
+//			addVerificationFailure(t);		
+			logger.info("FAIL: Element is disabled incorrectly >> " + element);
 		}
 	}
 
@@ -291,11 +291,11 @@ public class Verify extends CustomAssert{
 		logger.info(String.format("verifyElementIsDisabled(%s)", by));
 		try {
 			CustomAssert.assertElementIsDisabled(by);
-			log("PASS: Element is disabled correctly");
+			logger.info("PASS: Element is disabled correctly");
 		} catch (Throwable t) {
 			logger.error(t.getMessage());
-			addVerificationFailure(t);
-			log("FAIL: Element is enabled incorrectly >> " + by, true);
+//			addVerificationFailure(t);
+			logger.info("FAIL: Element is enabled incorrectly >> " + by);
 		}
 	}
 	
@@ -303,11 +303,11 @@ public class Verify extends CustomAssert{
 		logger.info("--> verifyElementIsDisabled()");
 		try {
 			CustomAssert.assertElementIsDisabled(element);
-			log("PASS: Element is disabled correctly");
+			logger.info("PASS: Element is disabled correctly");
 		} catch (Throwable t) {
 			logger.error(t.getMessage());
-			addVerificationFailure(t);
-			log("FAIL: Element is enabled incorrectly >> " + element, true);
+//			addVerificationFailure(t);
+			logger.info("FAIL: Element is enabled incorrectly >> " + element);
 		}
 	}
 	
@@ -315,11 +315,11 @@ public class Verify extends CustomAssert{
 		logger.info(String.format("verifyText(%s)", expected));			
 		try {
 			CustomAssert.assertText(actual, expected, message);
-			log("PASS: Actual text <" + actual + "> matches expected value");
+			logger.info("PASS: Actual text <" + actual + "> matches expected value");
 		} catch(Throwable t) {
 			logger.error(t.getMessage());
-			addVerificationFailure(t);	
-			log("FAIL: Actual text <" + actual + "> does not match the expected value <" + expected + ">", true);
+//			addVerificationFailure(t);	
+			logger.info("FAIL: Actual text <" + actual + "> does not match the expected value <" + expected + ">");
 		}
 	}
 	
@@ -327,27 +327,23 @@ public class Verify extends CustomAssert{
 		logger.info(String.format("verifyTextContains(%s)", partialMatch));			
 		try {
 			CustomAssert.assertTrue(actual.contains(partialMatch), "Error: No match found for '" + partialMatch + "'; Actual <" + actual + ">");
-			log("PASS: Actual value <" + actual + "> contains '" + partialMatch + "'");
+			logger.info("PASS: Actual value <" + actual + "> contains '" + partialMatch + "'");
 		} catch(Throwable t) {
 			logger.error(t.getMessage());
-			addVerificationFailure(t);		
-			log("FAIL: Actual value <" + actual + "> does not contain '" + partialMatch + "'", true);
+//			addVerificationFailure(t);		
+			logger.info("FAIL: Actual value <" + actual + "> does not contain '" + partialMatch + "'");
 		}
 	}
 	
-	/**
-	 * Verifies text string is not null and not empty 
-	 * @author Adnan Riaz
-	 * @since 27/01/2015
-	 */
+
 	public static void verifyTextNotNullOrEmpty(String text, String message) {
 		logger.info(String.format("verifyTextNotNullAndEmpty(%s)", text));
 		try {
 			CustomAssert.assertTrue((text!=null && !text.isEmpty()), message);
-			log("PASS: '"+text+"' is not null or empty as expected.");
+			logger.info("PASS: '"+text+"' is not null or empty as expected.");
 		} catch(Throwable t) {
-			addVerificationFailure(t);
-			log("FAIL: '" + message + "'");
+//			addVerificationFailure(t);
+			logger.info("FAIL: '" + message + "'");
 		}
 	}	
 	
@@ -355,11 +351,11 @@ public class Verify extends CustomAssert{
 		logger.info(String.format("verifyPageContainsText(%s)", textToFind));
 		try {
 			CustomAssert.assertPageContainsText(textToFind);
-			log("PASS: Page DOM contains the text '" + textToFind + "'");
+			logger.info("PASS: Page DOM contains the text '" + textToFind + "'");
 		} catch(Throwable t) {
 			logger.error(t.getMessage());
-			addVerificationFailure(t);
-			log("FAIL: Page DOM does not contain the text '" + textToFind + "'", true);
+//			addVerificationFailure(t);
+			logger.info("FAIL: Page DOM does not contain the text '" + textToFind + "'");
 		}
 	}
 }

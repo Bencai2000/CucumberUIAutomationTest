@@ -41,7 +41,7 @@ public class TextBox extends ControlBase implements ITextBox {
 		logger.info("Textbox value read is " + readFromTextBox);
 		
 		if(!readFromTextBox.equals(text)) {
-			log(" = WARNING Paste Incorrectly, Try Again = ");
+			logger.info(" = WARNING Paste Incorrectly, Try Again = ");
 			sleepms(500);
 			clearAndInput(_textbox, text);
 		}
@@ -58,7 +58,7 @@ public class TextBox extends ControlBase implements ITextBox {
 		logger.info("Textbox value read is " + readFromTextBox);
 		
 		if(!readFromTextBox.equals(text)) {
-			log(" = WARNING Paste Incorrectly, Try Again = ");
+			logger.info(" = WARNING Paste Incorrectly, Try Again = ");
 			sleepms(500);
 			clearAndPaste(_textbox, text);
 			String readFromTestBoxAgain = Get().trim();
@@ -99,7 +99,7 @@ public class TextBox extends ControlBase implements ITextBox {
 //		boolean b2 = _textbox.isEnabled();
 		
 		String temp = _textbox.getText();		
-		log("Actual text is " + temp);
+		logger.info("Actual text is " + temp);
 		
 		Verify.verifyText(_textbox.getText(), expected, 
 				"Verification failure: Expected<" + expected +">, Actual<" + Get() + ">");

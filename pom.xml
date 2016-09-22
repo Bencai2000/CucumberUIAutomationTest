@@ -43,12 +43,13 @@
 	    <version>1.2.17</version>
 	</dependency>
 	
-	<!-- https://mvnrepository.com/artifact/org.testng/testng -->
+	<!-- https://mvnrepository.com/artifact/org.testng/testng 
 	<dependency>
 	    <groupId>org.testng</groupId>
 	    <artifactId>testng</artifactId>
 	    <version>6.9.10</version>
 	</dependency>
+	-->
 	
 	<!-- https://mvnrepository.com/artifact/org.apache.poi/poi  API TO Access MS Excel-->
 	<dependency>
